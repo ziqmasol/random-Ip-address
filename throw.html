@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="salam">
+        Adigun
+    </div>
+    
+</body>
+<script>
+
+'use strict'
+function squareRoot(number) {
+    if (number < 0) {
+    throw new Error(`${number} is not a positive integer`)
+    // console.log("salam")
+    }
+    return Math.sqrt(number);
+    };
+    
+    // squareRoot(-1)
+
+    function imaginarySquareRoot(number) {
+try {
+return String(squareRoot(number));
+} catch(error) {
+    console.log(`oops ${error.message}`)
+return squareRoot(-number)+ "i";
+}
+}
+
+// imaginarySquareRoot(-4)
+function addTwoVar(vari){
+ if (typeof vari == String){
+    throw new Error (`I am salam Adigun ${vari}`)
+ }else{
+    console.log(vari + 10)
+ }
+    
+}
+
+try {
+
+    newNum(4)
+}catch(error){
+// console.log(error.message)
+}
+
+</script>
+</html>
+
+

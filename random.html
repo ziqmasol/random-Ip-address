@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random IP Address Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="generateRandomIPv4()">Generate Random IPv4 Address</button>
+    <button onclick="generateRandomIPv6()">Generate Random IPv6 Address</button>
+    <div class="output" id="output"></div>
+
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function generateRandomIPv4() {
+            const octet1 = getRandomInt(0, 255);
+            const octet2 = getRandomInt(0, 255);
+            const octet3 = getRandomInt(0, 255);
+            const octet4 = getRandomInt(0, 255);
+            const ipv4 = `${octet1}.${octet2}.${octet3}.${octet4}`;
+            document.getElementById('output').textContent = `Random IPv4 Address: ${ipv4}`;
+        }
+
+        function generateRandomIPv6() {
+            const hexDigits = '0123456789abcdef';
+            let ipv6 = '';
+            for (let i = 0; i < 8; i++) {
+                let group = '';
+                for (let j = 0; j < 4; j++) {
+                    group += hexDigits.charAt(getRandomInt(0, 15));
+                }
+                ipv6 += group;
+                if (i < 7) {
+                    ipv6 += ':';
+                }
+            }
+            document.getElementById('output').textContent = `Random IPv6 Address: ${ipv6}`;
+        }
+    </script>
+</body>
+</html>
